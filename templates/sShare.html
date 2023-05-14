@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>ShareSafe</title>
+ 
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+          <a class="navbar-brand" href="#">ShareSafe</a>
+          <ul class="navbar-nav mr-auto"></ul>
+          <span class="navbar-text mr-2">
+             {{user_info['given_name'] + " " +user_info['family_name'] }}
+          </span>
+          <a href="/google/logout" class="btn btn-primary" role="button" aria-pressed="true">Logout</a>
+      </div>
+    </nav>
+    <div class="container" style="border: 2px solid black ; padding:20px;margin-top:10px;background-color: rgb(186, 210, 188);">
+           
+        <form method='POST' enctype='multipart/form-data' action="/googleDrive/sShare/{{file_id}}">
+            <label> Enter Password <br/>
+                <input autocomplete="false" name="password" id="password" type="password" placeholder="Enter password"/>
+        </label>
+        <div class="input-group">
+            <input class="input-group-text mr-2" type="submit" name="getFile" value="Get File" />
+          </div>
+        </form>
+        <form method='POST' enctype='multipart/form-data' action="/googleDrive/sShare/{{file_id}}">
+            
+
+          <div class="input-group mb-3">
+            <p>
+                <label for="n">Number of splits:</label>
+                <input name="n" type="number" value="3"></input>
+              </p>
+              <p>
+                <label for="t">Threshold:</label>
+                <input name="t" type="number" value="2"></input>
+              </p>
+              <p>
+                <label for="secret">Secret</label>
+                <textarea rows="5"  cols="50" name="secret" id="secret" >{{ secret }}</textarea>
+              </p>
+            
+            
+          </div>
+          
+            <div>
+              <p>
+                <label>share 1</label>
+                <textarea rows="1"  cols="50" name="share1" id="share1" >{{ share1 }}</textarea>
+              </p>
+            </div> 
+            <div>
+              <p>
+                <label>share 2</label>
+                <textarea rows="1"  cols="50" name="share2" id="share2" >{{ share2 }}</textarea>
+              </p>
+            </div> 
+            <div>
+              <p>
+                <label>share 3</label>
+                <textarea rows="1"  cols="50" name="share3" id="share3" >{{ share3 }}</textarea>
+              </p>
+            </div> 
+
+        </div>
+        <p>
+         <label for="url">Encrypted File Url</label>
+         <a href="{{ share_url }}">{{url}}</a>
+       </p>
+</div>     
+        </form>
+        
+     
+    </div>
+    <form method='POST' enctype='multipart/form-data' action="/googleDrive/back/{{file_id}}">
+      <div class="input-group">
+          <input class="input-group-text mr-2" type="submit" name="back" value="back" />
+        </div>           
+      </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  
+  </body>
+</html>
