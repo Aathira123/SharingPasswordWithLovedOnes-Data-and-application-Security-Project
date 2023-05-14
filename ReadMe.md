@@ -1,4 +1,4 @@
-###Steps for running the code:
+### Steps for running the code:
 1. Install python version 3.10 
 2. run pip install -r requirements.txt to install all the libraries
 3. If in Linus/Mac , run ./run.sh or manually export the variables via terminal . In windows , ./run.bat must be run
@@ -8,7 +8,7 @@
 
 
 
-###References
+### References
 
 https://pypi.org/project/shamirs/
 https://nitratine.net/blog/post/python-gcm-encryption-tutorial/
